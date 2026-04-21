@@ -16,6 +16,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
 
+# SEO Global Settings
+keywords: ["shadowrockets windows", "小火箭windows版", "小火箭节点", "clash免费订阅", "clash节点免费订阅地址", "clash for windows 怎么导入"]
+
 # Pagination
 paginate: 10
 paginate_path: "/page:num/"
@@ -33,8 +36,8 @@ seo:
 indexnow:
   enabled: true
   endpoint: "https://api.indexnow.org/indexnow"
-  key: "YOUR_INDEXNOW_KEY"
-  key_location: "https://clashtorwindows.github.io/YOUR_INDEXNOW_KEY.txt"
+  key: "7942e97b5d634b868677764789505789"
+  key_location: "https://clashtorwindows.github.io/7942e97b5d634b868677764789505789.txt"
 
 # Markdown
 markdown: kramdown
