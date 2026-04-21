@@ -1,71 +1,44 @@
-# Manus News - 专为新闻资讯打造的 SEO 优先 Jekyll 主题
+# Shadowrocket Windows版怎么下载？小火箭Windows版+Clash免费订阅地址+节点导入教程
 
-Manus News 是一个高性能、深度 SEO 优化的 Jekyll 主题，专为新闻媒体、科技资讯和个人博客设计。它集成了现代搜索引擎所需的一切优化措施。
+## 📌 关键词
+shadowrocket windows  
+小火箭windows版  
+小火箭节点  
+clash免费订阅  
+clash节点免费订阅地址  
+clash for windows怎么导入  
+clash订阅链接  
+clash节点分享  
+翻墙工具  
+科学上网  
 
-## 核心特性
-
-- **🚀 极致 SEO 优化**：内置 TDK (Title, Description, Keywords) 自定义设置。
-- **📱 社交媒体友好**：完整支持 Open Graph (OG) 标签和 Twitter Card。
-- **📊 结构化数据**：自动生成符合 Schema.org 标准的 `NewsArticle` JSON-LD 数据。
-- **⚡ IndexNow 自动推送**：支持向 Bing 和 Yandex 实时推送新内容。
-- **📱 响应式设计**：适配所有移动设备和桌面浏览器。
-- **🔗 增强内链**：内置相关文章推荐和社交分享组件。
-- **📄 符合标准**：自动生成 Sitemap.xml、RSS Feed 和 robots.txt。
-
-## 安装说明
-
-1.  将此主题目录下的文件复制到您的 Jekyll 根目录。
-2.  在 `Gemfile` 中添加必要的插件：
-    ```ruby
-    group :jekyll_plugins do
-      gem "jekyll-feed"
-      gem "jekyll-sitemap"
-      gem "jekyll-seo-tag"
-      gem "jekyll-paginate"
-    end
-    ```
-3.  运行 `bundle install`。
-
-## 配置指南 (`_config.yml`)
-
-在 `_config.yml` 中配置您的站点信息：
-
-```yaml
-title: "您的站点名称"
-description: "您的站点描述（用于首页 SEO）"
-url: "https://yourdomain.com"
-author: "作者名称"
-
-# IndexNow 配置
-indexnow:
-  enabled: true
-  endpoint: "https://api.indexnow.org/indexnow"
-  key: "您的_INDEXNOW_KEY"
-  key_location: "https://yourdomain.com/您的_INDEXNOW_KEY.txt"
-```
-
-## SEO 使用建议
-
-在撰写文章（Front Matter）时，请务必填写以下字段以获得最佳 SEO 效果：
-
-```markdown
 ---
-layout: post
-title: "文章标题"
-description: "文章描述（用于搜索结果摘要，建议 120-160 字）"
-keywords: [关键词1, 关键词2]
-image: "/assets/images/cover.jpg" # 社交媒体分享时的预览图
+
+## 🚀 项目介绍
+
+本项目整理当前主流的科学上网工具使用方法，包括：
+
+- Shadowrocket（小火箭）使用说明  
+- Clash for Windows 配置教程  
+- Clash 免费订阅地址分享  
+- 小火箭节点获取方式  
+- 稳定机场与节点推荐  
+
+适合新手快速上手，实现稳定高速访问外网。
+
 ---
-```
 
-## IndexNow 推送
+## ❗ 关于 Shadowrocket Windows版说明
 
-主题附带 `indexnow.py` 脚本。在站点构建完成后，运行以下命令即可将新内容推送至 Bing 等搜索引擎：
+很多用户在搜索 **Shadowrocket Windows版** 或 **小火箭Windows版**，这里需要说明：
 
-```bash
-python3 indexnow.py
-```
+👉 Shadowrocket（小火箭）目前**仅支持 iOS 系统**  
+👉 Windows 用户建议使用：**Clash for Windows**
 
-## 许可证
+本页面将重点提供 Clash 使用教程 + 节点资源。
 
-MIT License.
+---
+
+## 📥 Clash 免费订阅地址（持续更新）
+
+> ⚠️ 提示：免费节点稳定性较低，仅供测试使用
