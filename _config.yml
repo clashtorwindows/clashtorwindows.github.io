@@ -39,6 +39,8 @@ indexnow:
   key: "7942e97b5d634b868677764789505789"
   key_location: "https://clashtorwindows.github.io/7942e97b5d634b868677764789505789.txt"
 
+show_excerpts: true
+
 # Markdown
 markdown: kramdown
 highlighter: rouge
