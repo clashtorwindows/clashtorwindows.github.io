@@ -142,12 +142,16 @@ layout: default
 </section>
 
 <style>
+/* ============================================
+   Breadcrumb Navigation Styles
+   ============================================ */
 .breadcrumb {
   background-color: #f8f9fa;
   border-bottom: 1px solid #e8e8e8;
   padding: 15px 0;
   font-size: 14px;
   color: #666;
+  margin-bottom: 0;
 }
 
 .breadcrumb .container {
@@ -176,6 +180,9 @@ layout: default
   color: #999;
 }
 
+/* ============================================
+   Post Wrapper & Layout
+   ============================================ */
 .post-wrapper {
   display: grid;
   grid-template-columns: 1fr 300px;
@@ -187,6 +194,7 @@ layout: default
 
 .post-main {
   min-width: 0;
+  flex: 1;
 }
 
 .post {
@@ -196,6 +204,9 @@ layout: default
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* ============================================
+   Post Header Styles
+   ============================================ */
 .post-category {
   display: inline-block;
   background-color: #e8eaf6;
@@ -210,9 +221,10 @@ layout: default
 .post-title {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
   color: #333;
   line-height: 1.4;
+  padding: 0;
 }
 
 .post-meta {
@@ -237,11 +249,19 @@ layout: default
   fill: currentColor;
 }
 
+/* ============================================
+   Post Content Styles
+   ============================================ */
 .post-content {
   font-size: 16px;
   line-height: 1.8;
   color: #555;
   margin-bottom: 40px;
+}
+
+/* H1 冲突修复：隐藏内容中的 H1 并转换为 H2 样式 */
+.post-content h1 {
+  display: none;
 }
 
 .post-content h2 {
@@ -258,11 +278,33 @@ layout: default
   color: #333;
 }
 
+.post-content h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
+  color: #333;
+}
+
+.post-content h5 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 15px 0 8px 0;
+  color: #333;
+}
+
+.post-content h6 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 12px 0 6px 0;
+  color: #333;
+}
+
 .post-content p {
   margin-bottom: 15px;
 }
 
-.post-content ul, .post-content ol {
+.post-content ul,
+.post-content ol {
   margin-left: 20px;
   margin-bottom: 15px;
 }
@@ -274,6 +316,7 @@ layout: default
 .post-content a {
   color: #667eea;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .post-content a:hover {
@@ -286,6 +329,7 @@ layout: default
   border-radius: 3px;
   font-family: 'Courier New', monospace;
   font-size: 14px;
+  color: #d63384;
 }
 
 .post-content pre {
@@ -294,8 +338,50 @@ layout: default
   border-radius: 6px;
   overflow-x: auto;
   margin-bottom: 15px;
+  border: 1px solid #e8e8e8;
 }
 
+.post-content pre code {
+  color: #333;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #667eea;
+  padding-left: 15px;
+  margin-left: 0;
+  margin-bottom: 15px;
+  color: #666;
+  font-style: italic;
+}
+
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.post-content table th,
+.post-content table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.post-content table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.post-content table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* ============================================
+   Post Footer Styles
+   ============================================ */
 .post-footer {
   margin-top: 40px;
   padding-top: 20px;
@@ -324,7 +410,9 @@ layout: default
   color: white;
 }
 
-/* Sidebar */
+/* ============================================
+   Sidebar Styles
+   ============================================ */
 .post-sidebar {
   display: flex;
   flex-direction: column;
@@ -341,7 +429,7 @@ layout: default
 .widget-title {
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
   color: #333;
 }
 
@@ -382,7 +470,9 @@ layout: default
   margin-top: 4px;
 }
 
-/* Related Posts Section */
+/* ============================================
+   Related Posts Section
+   ============================================ */
 .related-posts-section {
   background-color: #f8f9fa;
   padding: 60px 20px;
@@ -398,7 +488,7 @@ layout: default
   font-size: 28px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 40px;
+  margin: 0 0 40px 0;
   color: #333;
 }
 
@@ -474,7 +564,9 @@ layout: default
   color: #5568d3;
 }
 
-/* Disclaimer */
+/* ============================================
+   Disclaimer Section
+   ============================================ */
 .post-disclaimer {
   background-color: #fff3cd;
   border-left: 4px solid #ffc107;
@@ -495,18 +587,24 @@ layout: default
   line-height: 1.6;
 }
 
+/* ============================================
+   Responsive Design
+   ============================================ */
 @media (max-width: 768px) {
   .post-wrapper {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 30px;
+    margin: 20px auto;
   }
 
   .post {
     padding: 20px;
+    border-radius: 4px;
   }
 
   .post-title {
     font-size: 24px;
+    margin-bottom: 15px;
   }
 
   .post-meta {
@@ -514,12 +612,82 @@ layout: default
     gap: 10px;
   }
 
-  .post-sidebar {
-    order: -1;
+  .post-content {
+    font-size: 15px;
+  }
+
+  .post-content h2 {
+    font-size: 20px;
+    margin: 20px 0 12px 0;
+  }
+
+  .post-content h3 {
+    font-size: 18px;
+    margin: 18px 0 10px 0;
+  }
+
+  .post-content h4 {
+    font-size: 16px;
+    margin: 15px 0 8px 0;
   }
 
   .related-posts-grid {
     grid-template-columns: 1fr;
+  }
+
+  .breadcrumb {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+
+  .breadcrumb .separator {
+    margin: 0 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .post {
+    padding: 15px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .post-title {
+    font-size: 20px;
+  }
+
+  .post-meta {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .post-content {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .post-content h2 {
+    font-size: 18px;
+  }
+
+  .post-content h3 {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .related-posts-section {
+    padding: 40px 15px;
+  }
+
+  .post-disclaimer {
+    padding: 15px;
+  }
+
+  .post-disclaimer p {
+    font-size: 12px;
   }
 }
 </style>
