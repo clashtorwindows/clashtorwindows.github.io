@@ -51,9 +51,9 @@ clash节点分享
 ## 📥 Clash 免费订阅地址（测试用）
 
 > ⚠️ 免责声明：以下为测试/示例订阅，可能失效，仅用于学习研究
-https://free-node.test/api/v1/client/subscribe?token=free2026clash&format=yaml
-https://cdn.node-share.com/link/clash?sub=trialuser123456789
-https://api.fastvpn.cloud/subscribe?token=clashfree2026&speed=high
+- https://free-node.test/api/v1/client/subscribe?token=free2026clash&format=yaml
+- https://cdn.node-share.com/link/clash?sub=trialuser123456789
+- https://api.fastvpn.cloud/subscribe?token=clashfree2026&speed=high
 > 
 ---
 
