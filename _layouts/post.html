@@ -1,39 +1,525 @@
 ---
 layout: default
 ---
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <div class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}
-      {%- if page.categories -%}
-        • <span>分类: {{ page.categories | join: ', ' }}</span>
-      {%- endif -%}
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="{{ "/" | relative_url }}">首页</a>
+    <span class="separator">/</span>
+    <a href="{{ "/articles/" | relative_url }}">最新文章</a>
+    <span class="separator">/</span>
+    <span class="current">{{ page.title | escape }}</span>
+  </div>
+</nav>
+
+<div class="post-wrapper">
+  <div class="post-main">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <div class="post-category">{{ page.categories | first | default: "技术指南" }}</div>
+        <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+        <div class="post-meta">
+          <span class="post-author">
+            <svg class="icon" viewBox="0 0 24 24" width="16" height="16">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            {{ page.author | default: site.author }}
+          </span>
+          <span class="post-date">
+            <svg class="icon" viewBox="0 0 24 24" width="16" height="16">
+              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+            </svg>
+            <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+              {{ page.date | date: "%Y-%m-%d" }}
+            </time>
+          </span>
+          <span class="post-reading-time">
+            <svg class="icon" viewBox="0 0 24 24" width="16" height="16">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+            </svg>
+            约 {{ content | strip_html | split: "" | size | divided_by: 300 | ceil }} 分钟阅读
+          </span>
+        </div>
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody">
+        {{ content }}
+      </div>
+
+      <footer class="post-footer">
+        <!-- Tags -->
+        {% if page.tags %}
+        <div class="post-tags">
+          <strong>标签：</strong>
+          {% for tag in page.tags %}
+            <a href="/articles/?tag={{ tag | url_encode }}" class="tag">{{ tag }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Social Share Component -->
+        {% include social-share.html %}
+      </footer>
+
+      <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+    </article>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="post-sidebar">
+    <!-- Latest Articles Widget -->
+    <div class="sidebar-widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul class="widget-list">
+        {% for post in site.posts limit:5 %}
+          <li>
+            <a href="{{ post.url | relative_url }}" class="widget-link">{{ post.title }}</a>
+            <span class="widget-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
-  </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
+    <!-- Categories Widget -->
+    <div class="sidebar-widget">
+      <h3 class="widget-title">分类</h3>
+      <ul class="widget-list">
+        <li><a href="/articles/" class="widget-link">全部文章</a></li>
+        <li><a href="/articles/?category=教程" class="widget-link">教程指南</a></li>
+        <li><a href="/articles/?category=技巧" class="widget-link">使用技巧</a></li>
+        <li><a href="/articles/?category=问题" class="widget-link">常见问题</a></li>
+      </ul>
+    </div>
+
+    <!-- Quick Links Widget -->
+    <div class="sidebar-widget">
+      <h3 class="widget-title">快速链接</h3>
+      <ul class="widget-list">
+        <li><a href="/#tools" class="widget-link">工具下载</a></li>
+        <li><a href="/#guides" class="widget-link">使用教程</a></li>
+        <li><a href="/#" class="widget-link">免费节点</a></li>
+        <li><a href="/about.html" class="widget-link">关于我们</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<!-- Related Posts Section -->
+<section class="related-posts-section">
+  <div class="container">
+    <h2 class="section-title">相关推荐</h2>
+    <div class="related-posts-grid">
+      {% for post in site.related_posts limit:3 %}
+        <article class="related-post-card">
+          <div class="related-post-category">{{ post.categories | first | default: "技术指南" }}</div>
+          <h3 class="related-post-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          <p class="related-post-excerpt">
+            {% if post.description and post.description != "" %}
+              {{ post.description | strip_html | truncate: 80 }}
+            {% else %}
+              {{ post.content | strip_html | truncate: 80 }}
+            {% endif %}
+          </p>
+          <div class="related-post-meta">
+            <span class="related-post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+            <a href="{{ post.url | relative_url }}" class="related-post-link">阅读全文 →</a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
   </div>
+</section>
 
-  {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
-  {%- endif -%}
-
-  <div class="post-footer">
-    <!-- Social Share Component -->
-    {% include social-share.html %}
-
-    <!-- Related Posts -->
-    {% include related-posts.html %}
+<!-- Disclaimer -->
+<section class="post-disclaimer">
+  <div class="container">
+    <p><strong>免责声明：</strong> 本文仅供参考，不构成任何建议或推荐。使用本文所述工具和方法时，请遵守相关法律法规，自行承担相应责任。</p>
   </div>
+</section>
 
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-</article>
+<style>
+.breadcrumb {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 15px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.breadcrumb .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.breadcrumb a {
+  color: #667eea;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #5568d3;
+  text-decoration: underline;
+}
+
+.breadcrumb .separator {
+  margin: 0 8px;
+  color: #ccc;
+}
+
+.breadcrumb .current {
+  color: #999;
+}
+
+.post-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.post-main {
+  min-width: 0;
+}
+
+.post {
+  background: white;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.post-category {
+  display: inline-block;
+  background-color: #e8eaf6;
+  color: #667eea;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.post-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.post-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  display: inline-block;
+  fill: currentColor;
+}
+
+.post-content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.post-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 30px 0 15px 0;
+  color: #333;
+}
+
+.post-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 25px 0 12px 0;
+  color: #333;
+}
+
+.post-content p {
+  margin-bottom: 15px;
+}
+
+.post-content ul, .post-content ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.post-content li {
+  margin-bottom: 8px;
+}
+
+.post-content a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.post-content a:hover {
+  text-decoration: underline;
+}
+
+.post-content code {
+  background-color: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.post-content pre {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 15px;
+}
+
+.post-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.post-tags {
+  margin-bottom: 30px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #f0f4ff;
+  color: #667eea;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background-color: #667eea;
+  color: white;
+}
+
+/* Sidebar */
+.post-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sidebar-widget {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  border-left: 4px solid #667eea;
+}
+
+.widget-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.widget-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.widget-list li {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.widget-list li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.widget-link {
+  color: #667eea;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.widget-link:hover {
+  color: #5568d3;
+}
+
+.widget-date {
+  font-size: 12px;
+  color: #999;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Related Posts Section */
+.related-posts-section {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  margin-top: 60px;
+}
+
+.related-posts-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.related-post-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.related-post-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.related-post-category {
+  display: inline-block;
+  background-color: #e8eaf6;
+  color: #667eea;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.related-post-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.related-post-title a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.related-post-title a:hover {
+  color: #667eea;
+}
+
+.related-post-excerpt {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.related-post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #999;
+}
+
+.related-post-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.related-post-link:hover {
+  color: #5568d3;
+}
+
+/* Disclaimer */
+.post-disclaimer {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.post-disclaimer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.post-disclaimer p {
+  color: #856404;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .post-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .post {
+    padding: 20px;
+  }
+
+  .post-title {
+    font-size: 24px;
+  }
+
+  .post-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .post-sidebar {
+    order: -1;
+  }
+
+  .related-posts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

@@ -1,13 +1,13 @@
 # Site settings
-title: "Manus News"
-email: contact@example.com
+title: "Clash for Windows & Shadowrocket Windows - 官方指南 | 免费节点订阅"
+email: support@clashtorwindows.com
 description: >-
-  一个专业的新闻资讯类 Jekyll 主题，深度优化 SEO、OG 标签、TDK 设置及 IndexNow 自动推送。
+  Clash for Windows 与 Shadowrocket Windows 版本的官方指南。提供最新的免费节点订阅地址、Clash 配置教程、小火箭 Windows 版下载及使用指南。支持 Clash 免费订阅、节点导入、客户端配置等完整解决方案。
 baseurl: ""
 url: "https://clashtorwindows.github.io"
-author: "Manus Editor"
-twitter_username: manus_news
-github_username:  manus
+author: "Clash Tools Team"
+twitter_username: clashtorwindows
+github_username: clashtorwindows
 
 # Build settings
 plugins:
@@ -17,20 +17,29 @@ plugins:
   - jekyll-paginate
 
 # SEO Global Settings
-keywords: ["shadowrockets windows", "小火箭windows版", "小火箭节点", "clash免费订阅", "clash节点免费订阅地址", "clash for windows 怎么导入"]
+keywords: 
+  - "shadowrockets windows"
+  - "小火箭windows版"
+  - "小火箭节点"
+  - "clash免费订阅"
+  - "clash节点免费订阅地址"
+  - "clash for windows 怎么导入"
+  - "clash节点推荐"
+  - "windows科学上网"
+  - "免费节点"
 
 # Pagination
-paginate: 10
+paginate: 12
 paginate_path: "/page:num/"
 
 # SEO Settings
 seo:
-  name: "Manus News"
-  type: "NewsMediaOrganization"
+  name: "Clash for Windows & Shadowrocket Windows"
+  type: "SoftwareApplication"
   logo: "/assets/images/logo.png"
   links:
-    - https://twitter.com/manus_news
-    - https://github.com/manus
+    - https://twitter.com/clashtorwindows
+    - https://github.com/clashtorwindows
 
 # IndexNow Settings
 indexnow:
@@ -44,6 +53,9 @@ show_excerpts: true
 # Markdown
 markdown: kramdown
 highlighter: rouge
+
+# Timezone
+timezone: "Asia/Shanghai"
 
 # Exclude from processing
 exclude:

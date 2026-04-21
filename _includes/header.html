@@ -13,11 +13,11 @@
       </label>
 
       <div class="trigger">
-        {%- for page in site.pages -%}
-          {%- if page.title -%}
-          <a class="page-link" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
-          {%- endif -%}
-        {%- endfor -%}
+        <a class="page-link" href="{{ "/" | relative_url }}">首页</a>
+        <a class="page-link" href="{{ "/" | relative_url }}#tools">工具下载</a>
+        <a class="page-link" href="{{ "/" | relative_url }}#guides">使用教程</a>
+        <a class="page-link" href="{{ "/articles/" | relative_url }}">最新文章</a>
+        <a class="page-link" href="{{ "/about.html" | relative_url }}">关于我们</a>
       </div>
     </nav>
   </div>
