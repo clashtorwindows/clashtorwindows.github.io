@@ -1,0 +1,68 @@
+<div class="social-share">
+  <h3>分享到：</h3>
+  <ul class="share-links">
+    <li>
+      <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url }}" target="_blank" rel="nofollow noopener noreferrer" title="分享到 Twitter">
+        Twitter
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank" rel="nofollow noopener noreferrer" title="分享到 Facebook">
+        Facebook
+      </a>
+    </li>
+    <li>
+      <a href="https://service.weibo.com/share/share.php?url={{ page.url | absolute_url }}&title={{ page.title | url_encode }}" target="_blank" rel="nofollow noopener noreferrer" title="分享到微博">
+        微博
+      </a>
+    </li>
+    <li>
+      <a href="https://connect.qq.com/widget/shareqq/index.html?url={{ page.url | absolute_url }}&title={{ page.title | url_encode }}" target="_blank" rel="nofollow noopener noreferrer" title="分享到 QQ">
+        QQ
+      </a>
+    </li>
+    <li>
+      <button onclick="copyToClipboard()" title="复制链接">复制链接</button>
+    </li>
+  </ul>
+</div>
+
+<script>
+function copyToClipboard() {
+  const url = window.location.href;
+  navigator.clipboard.writeText(url).then(() => {
+    alert('链接已复制到剪贴板！');
+  });
+}
+</script>
+
+<style>
+.social-share {
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+.social-share h3 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+.share-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+.share-links li a, .share-links li button {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f9f9f9;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+.share-links li a:hover, .share-links li button:hover {
+  background: #eee;
+}
+</style>

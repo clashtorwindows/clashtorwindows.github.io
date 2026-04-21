@@ -1,0 +1,51 @@
+# Site settings
+title: "Manus News"
+email: contact@example.com
+description: >-
+  一个专业的新闻资讯类 Jekyll 主题，深度优化 SEO、OG 标签、TDK 设置及 IndexNow 自动推送。
+baseurl: ""
+url: "https://clashtorwindows.github.io"
+author: "Manus Editor"
+twitter_username: manus_news
+github_username:  manus
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# SEO Settings
+seo:
+  name: "Manus News"
+  type: "NewsMediaOrganization"
+  logo: "/assets/images/logo.png"
+  links:
+    - https://twitter.com/manus_news
+    - https://github.com/manus
+
+# IndexNow Settings
+indexnow:
+  enabled: true
+  endpoint: "https://api.indexnow.org/indexnow"
+  key: "YOUR_INDEXNOW_KEY"
+  key_location: "https://clashtorwindows.github.io/YOUR_INDEXNOW_KEY.txt"
+
+# Markdown
+markdown: kramdown
+highlighter: rouge
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

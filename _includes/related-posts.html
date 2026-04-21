@@ -1,0 +1,62 @@
+<div class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="post-list">
+    {% assign related_count = 0 %}
+    {% for post in site.related_posts %}
+      {% if related_count < 3 %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </li>
+        {% assign related_count = related_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+
+    {% if related_count == 0 %}
+      {% for post in site.posts limit: 3 %}
+        {% if post.url != page.url %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </ul>
+</div>
+
+<style>
+.related-posts {
+  margin-top: 40px;
+  padding: 20px;
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+.related-posts h3 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+.related-posts .post-list {
+  list-style: none;
+  padding: 0;
+}
+.related-posts .post-list li {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.related-posts .post-list li a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+}
+.related-posts .post-list li a:hover {
+  text-decoration: underline;
+}
+.related-posts .post-list .post-meta {
+  font-size: 0.85em;
+  color: #888;
+}
+</style>
