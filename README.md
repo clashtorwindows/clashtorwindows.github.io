@@ -2,7 +2,7 @@
 
 ---
 
-## 📌 核心关键词（SEO覆盖）
+## 📌 Shadowrocket 小火箭Windows版
 
 shadowrocket windows  
 小火箭windows版  
