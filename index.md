@@ -1,10 +1,9 @@
 ---
 layout: default
-title: "Shadowrocket Windows版怎么下载_小火箭Windows版节点获取_Clash for Windows怎么导入教程"
+title: "Shadowrocket Windows下载_clash for windows免费节点购买_机场推荐 clash白嫖机场"
 categories: [Clash, Windows, 节点订阅]
-tags: [shadowrocket windows, 小火箭windows版, 小火箭节点, clash for windows怎么导入]
-description: "整理Shadowrocket Windows版与小火箭Windows版相关问题，提供小火箭节点获取方式及Clash for Windows导入订阅教程，适合新手快速配置使用。"
-keywords: "shadowrocket windows,小火箭windows版,小火箭节点,clash for windows怎么导入,clash订阅链接,clash节点导入,clash节点分享,clash for windows教程,翻墙工具,科学上网"
+description: "整理Clash for Windows怎么导入订阅的完整步骤，包含从订阅链接添加、配置文件下载到节点切换的详细流程，同时说明小火箭Windows版是否存在及替代方案，提供常见clash for windows免费节点购买获取方式、机场推荐就用clash白嫖机场，适合新手快速完成基础配置与日常使用。"
+keywords: "shadowrocket windows,小火箭windows版,小火箭节点,clash for windows免费节点购买,白嫖机场,场推荐 clash,小火箭节点共享,clash for android"
 ---
 
 
