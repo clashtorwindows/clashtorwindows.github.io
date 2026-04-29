@@ -1,5 +1,7 @@
 # Site settings
-title: "Shadowrocket Windows版怎么下载_小火箭Windows版节点获取_Clash for Windows怎么导入教程"
+title: "Clash for Windows & Shadowrocket"
+# 原始长标题移至 site_name 以保持 SEO 权重但减少文章标题长度叠加
+site_name: "Shadowrocket Windows版下载_小火箭节点获取_Clash导入教程"
 email: support@clashtorwindows.com
 description: "整理Shadowrocket Windows版与小火箭Windows版相关问题，提供小火箭节点获取方式及Clash for Windows导入订阅教程，适合新手快速配置使用。"
 baseurl: ""
@@ -34,7 +36,7 @@ paginate_path: "/page:num/"
 
 # SEO Settings
 seo:
-  name: "Clash for Windows & Shadowrocket Windows"
+  name: "Clash for Windows & Shadowrocket"
   type: "SoftwareApplication"
   logo: "/assets/images/logo.png"
   links:
