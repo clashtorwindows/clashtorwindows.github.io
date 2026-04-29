@@ -24,7 +24,7 @@ keywords: "shadowrocket windows,小火箭windows版,小火箭节点,clash for wi
   <div class="container">
     <h2 class="section-title">什么是 Clash for Windows 与 Shadowrocket？</h2>
     <div class="intro-content">
-      <p><strong>Clash for Windows</strong> 是一款功能强大的网络工具，支持多种代理协议（Shadowsocks、V2Ray、Trojan 等），提供灵活的规则配置和流量分流功能。它是 Windows 平台上最受欢迎的网络工具之一，拥有直观的用户界面和强大的自定义能力。</p>
+      <p><strong>Clash for Windows</strong> 是一款功能强大的网络工具，支持多种代理协议（Shadowsocks、V2Ray、Trojan 等），提供灵活的规则配置 and 流量分流功能。它是 Windows 平台上最受欢迎的网络工具之一，拥有直观的用户界面和强大的自定义能力。</p>
       
       <p><strong>Shadowrocket（小火箭）</strong> 是 iOS 平台的经典网络工具，而 <strong>Shadowrocket Windows 版本</strong> 则为 Windows 用户带来了同样的便捷体验。小火箭 Windows 版支持快速连接、节点管理、流量监控等功能，是 Windows 用户的理想选择。</p>
       
@@ -148,7 +148,7 @@ keywords: "shadowrocket windows,小火箭windows版,小火箭节点,clash for wi
       <div class="guide-card">
         <div class="guide-number">6</div>
         <h3>安全与隐私保护</h3>
-        <p>了解如何安全使用这些工具，保护您的隐私和数据安全。</p>
+        <p>了解如何 safe 使用这些工具，保护您的隐私和数据安全。</p>
         <a href="/articles/" class="guide-link">查看详细教程 →</a>
       </div>
     </div>
@@ -497,116 +497,3 @@ keywords: "shadowrocket windows,小火箭windows版,小火箭节点,clash for wi
   margin-bottom: 15px;
   color: #333;
 }
-
-.guide-card p {
-  color: #666;
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.guide-link {
-  color: #667eea;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.guide-link:hover {
-  color: #5568d3;
-}
-
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.article-card {
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.article-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.article-category {
-  display: inline-block;
-  background-color: #e8eaf6;
-  color: #667eea;
-  padding: 5px 12px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.article-title {
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-
-.article-title a {
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.article-title a:hover {
-  color: #667eea;
-}
-
-.article-excerpt {
-  color: #666;
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-.article-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  color: #999;
-}
-
-.article-link {
-  color: #667eea;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.article-link:hover {
-  color: #5568d3;
-}
-
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 32px;
-  }
-  
-  .hero-content p {
-    font-size: 16px;
-  }
-  
-  .section-title {
-    font-size: 28px;
-  }
-  
-  .tools-grid, .guides-grid, .articles-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .tool-card.featured {
-    transform: scale(1);
-  }
-}
-</style>
