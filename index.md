@@ -1,9 +1,11 @@
 ---
-layout: home
-title: "Clash for Windows & Shadowrocket Windows 官方指南"
-description: "Clash for Windows 与 Shadowrocket Windows 版本的完整官方指南。提供免费节点订阅地址、Clash 导入教程、小火箭 Windows 版下载及配置方案。"
-keywords: ["shadowrockets windows", "小火箭windows版", "小火箭节点", "clash免费订阅", "clash节点免费订阅地址", "clash for windows 怎么导入"]
+title: "Shadowrocket Windows版怎么下载_小火箭Windows版节点获取_Clash for Windows怎么导入教程"
+categories: [Clash, Windows, 节点订阅]
+tags: [shadowrocket windows, 小火箭windows版, 小火箭节点, clash for windows怎么导入]
+description: "整理Shadowrocket Windows版与小火箭Windows版相关问题，提供小火箭节点获取方式及Clash for Windows导入订阅教程，适合新手快速配置使用。"
+keywords: "shadowrocket windows,小火箭windows版,小火箭节点,clash for windows怎么导入,clash订阅链接,clash节点导入,clash节点分享,clash for windows教程,翻墙工具,科学上网"
 ---
+
 
 <!-- Hero Section -->
 <section class="hero">
