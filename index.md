@@ -1,4 +1,5 @@
 ---
+layout: default
 title: "Shadowrocket Windows版怎么下载_小火箭Windows版节点获取_Clash for Windows怎么导入教程"
 categories: [Clash, Windows, 节点订阅]
 tags: [shadowrocket windows, 小火箭windows版, 小火箭节点, clash for windows怎么导入]
@@ -24,7 +25,7 @@ keywords: "shadowrocket windows,小火箭windows版,小火箭节点,clash for wi
   <div class="container">
     <h2 class="section-title">什么是 Clash for Windows 与 Shadowrocket？</h2>
     <div class="intro-content">
-      <p><strong>Clash for Windows</strong> 是一款功能强大的网络工具，支持多种代理协议（Shadowsocks、V2Ray、Trojan 等），提供灵活的规则配置 and 流量分流功能。它是 Windows 平台上最受欢迎的网络工具之一，拥有直观的用户界面和强大的自定义能力。</p>
+      <p><strong>Clash for Windows</strong> 是一款功能强大的网络工具，支持多种代理协议（Shadowsocks、V2Ray、Trojan 等），提供灵活的规则配置 and 流量分流功能。它是 Windows 平台上最受欢迎的网络工具之一，拥有直观的用户界面 and 强大的自定义能力。</p>
       
       <p><strong>Shadowrocket（小火箭）</strong> 是 iOS 平台的经典网络工具，而 <strong>Shadowrocket Windows 版本</strong> 则为 Windows 用户带来了同样的便捷体验。小火箭 Windows 版支持快速连接、节点管理、流量监控等功能，是 Windows 用户的理想选择。</p>
       
