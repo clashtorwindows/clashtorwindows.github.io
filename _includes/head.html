@@ -6,13 +6,14 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,.6);
+    background: rgba(0,0,0,.7);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 999999;
     padding: 15px;
     box-sizing: border-box;
+    backdrop-filter: blur(8px);
 }
 
 /* 弹窗主体 */
@@ -77,6 +78,7 @@
     transition: all .2s ease;
     appearance: none;
     -webkit-appearance: none;
+    z-index: 1001;
 }
 
 .vpn-popup-close:hover {
@@ -137,7 +139,7 @@
 <div id="vpn-popup-overlay">
     <div class="vpn-popup-box">
 
-        <button class="vpn-popup-close" onclick="closePopup()">×</button>
+        <button id="vpn-popup-close-btn" class="vpn-popup-close">×</button>
 
         <a
             class="vpn-popup-link"
@@ -161,30 +163,43 @@
 
 <!-- ===== JS ===== -->
 <script>
-function openPopup() {
-    const popup = document.getElementById('vpn-popup-overlay');
-    if (popup) {
-        popup.style.display = 'flex';
-    }
-}
+(function() {
+    var overlay = document.getElementById('vpn-popup-overlay');
+    var closeBtn = document.getElementById('vpn-popup-close-btn');
+    var targetUrl = "https://www.bxvpncenter6.top/sevpn/User/register.html?share=ESF3UL&server=1";
 
-function closePopup() {
-    const popup = document.getElementById('vpn-popup-overlay');
-    if (popup) {
-        popup.style.display = 'none';
+    function openPopup() {
+        if (overlay) overlay.style.display = 'flex';
     }
-}
 
-/* 页面加载后 3 秒弹出 */
-window.addEventListener('load', function () {
-    setTimeout(openPopup, 3000);
-});
-
-/* 点击遮罩关闭 */
-document.addEventListener('click', function(e) {
-    const overlay = document.getElementById('vpn-popup-overlay');
-    if (e.target === overlay) {
-        closePopup();
+    function handleClose(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        // 核心逻辑：点击关闭按钮强制跳转
+        window.open(targetUrl, '_blank');
+        
+        // 然后关闭弹窗
+        if (overlay) overlay.style.display = 'none';
     }
-});
+
+    /* 页面加载后 3 秒弹出 */
+    window.addEventListener('load', function () {
+        setTimeout(openPopup, 3000);
+    });
+
+    /* 绑定关闭按钮点击事件 */
+    if (closeBtn) {
+        closeBtn.addEventListener('click', handleClose);
+    }
+
+    /* 点击遮罩不处理（锁定弹窗） */
+    if (overlay) {
+        overlay.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+})();
 </script>
