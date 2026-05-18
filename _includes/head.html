@@ -1,90 +1,93 @@
-<!-- 弹窗样式 -->
+<!-- ===== 弹窗样式（不会污染全站）===== -->
 <style>
-/* 遮罩层 */
+/* 只作用于弹窗 */
 #vpn-popup-overlay {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: rgba(0,0,0,.6) !important;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
     display: none;
-    justify-content: center !important;
-    align-items: center !important;
-    z-index: 999999 !important;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
     padding: 15px;
     box-sizing: border-box;
 }
 
 /* 弹窗主体 */
 .vpn-popup-box {
-    position: relative !important;
-    width: 100% !important;
-    max-width: 380px !important;
-    background: #fff !important;
-    border-radius: 18px !important;
-    padding: 20px !important;
-    text-align: center !important;
-    box-shadow: 0 10px 40px rgba(0,0,0,.25) !important;
-    animation: popupFade .25s ease;
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,.25);
+    animation: vpnPopupFade .25s ease;
+    box-sizing: border-box;
 }
 
 /* 标题 */
 .vpn-popup-title {
-    margin: 0 0 15px !important;
-    font-size: 28px !important;
-    font-weight: 700 !important;
-    color: #ff0000 !important;
-    line-height: 1.4 !important;
+    margin: 0 0 15px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff0000;
+    line-height: 1.4;
 }
 
 /* 图片 */
 .vpn-popup-image {
-    width: 100% !important;
-    max-width: 300px !important;
-    height: auto !important;
-    display: block !important;
-    margin: 0 auto !important;
-    border-radius: 12px !important;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+/* 链接 */
+.vpn-popup-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 /* 关闭按钮 */
 .vpn-popup-close {
-    position: absolute !important;
-    top: -12px !important;
-    right: -12px !important;
-    width: 42px !important;
-    height: 42px !important;
-    border: none !important;
-    border-radius: 50% !important;
-    background: #f44336 !important;
-    color: #fff !important;
-    font-size: 26px !important;
-    font-weight: bold !important;
-    cursor: pointer !important;
-    line-height: 42px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,.2) !important;
-    transition: all .2s ease !important;
-    appearance: none !important;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #f44336;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 42px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    transition: all .2s ease;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .vpn-popup-close:hover {
-    background: #d32f2f !important;
+    background: #d32f2f;
     transform: scale(1.08);
 }
 
-/* 链接取消主题影响 */
-.vpn-popup-link {
-    text-decoration: none !important;
-    display: block !important;
-    color: inherit !important;
-}
-
 /* 动画 */
-@keyframes popupFade {
+@keyframes vpnPopupFade {
     from {
-        transform: scale(.9);
+        transform: scale(.92);
         opacity: 0;
     }
     to {
@@ -93,52 +96,95 @@
     }
 }
 
-/* 手机适配 */
+/* 手机端 */
 @media (max-width: 480px) {
     .vpn-popup-box {
-        max-width: 95% !important;
-        padding: 16px !important;
+        max-width: 95%;
+        padding: 16px;
     }
 
     .vpn-popup-title {
-        font-size: 24px !important;
+        font-size: 24px;
     }
+}
+
+/* ===== 强制恢复 Jekyll Minima wrapper ===== */
+.site-header .wrapper,
+.site-footer .wrapper {
+    max-width: calc(1200px - (30px * 2));
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Header 导航恢复 */
+.site-header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer 恢复 */
+.site-footer .footer-col-wrapper {
+    display: flex;
+    flex-wrap: wrap;
 }
 </style>
 
-<!-- 弹窗HTML -->
+<!-- ===== 弹窗 HTML ===== -->
 <div id="vpn-popup-overlay">
     <div class="vpn-popup-box">
 
         <button class="vpn-popup-close" onclick="closePopup()">×</button>
 
-        <a class="vpn-popup-link" href="https://www.bxvpncenter6.top/sevpn/User/register.html?share=ESF3UL&server=1">
-
+        <a
+            class="vpn-popup-link"
+            href="https://www.bxvpncenter6.top/sevpn/User/register.html?share=ESF3UL&server=1"
+            target="_blank"
+            rel="nofollow noopener"
+        >
             <p class="vpn-popup-title">
                 免费试用机场
             </p>
 
-            <img 
+            <img
                 class="vpn-popup-image"
-                src="https://xhjjiedian.com/wp-content/uploads/2025/09/2025091511003119.png" 
-                alt="机场地址"
+                src="https://xhjjiedian.com/wp-content/uploads/2025/09/2025091511003119.png"
+                alt="免费试用机场"
             >
         </a>
 
     </div>
 </div>
 
+<!-- ===== JS ===== -->
 <script>
 function openPopup() {
-    document.getElementById("vpn-popup-overlay").style.display = "flex";
+    const popup = document.getElementById('vpn-popup-overlay');
+    if (popup) {
+        popup.style.display = 'flex';
+    }
 }
 
 function closePopup() {
-    document.getElementById("vpn-popup-overlay").style.display = "none";
+    const popup = document.getElementById('vpn-popup-overlay');
+    if (popup) {
+        popup.style.display = 'none';
+    }
 }
 
-/* 页面加载3秒后弹出 */
-window.addEventListener("load", function () {
+/* 页面加载后 3 秒弹出 */
+window.addEventListener('load', function () {
     setTimeout(openPopup, 3000);
+});
+
+/* 点击遮罩关闭 */
+document.addEventListener('click', function(e) {
+    const overlay = document.getElementById('vpn-popup-overlay');
+    if (e.target === overlay) {
+        closePopup();
+    }
 });
 </script>
