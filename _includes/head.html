@@ -1,69 +1,144 @@
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 弹窗样式 -->
+<style>
+/* 遮罩层 */
+#vpn-popup-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0,0,0,.6) !important;
+    display: none;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 999999 !important;
+    padding: 15px;
+    box-sizing: border-box;
+}
 
-  {% if page.layout == "post" %}
-    <title>{{ page.title }}</title>
-    {%- seo title=false -%}
-  {% else %}
-    {%- seo -%}
-  {% endif %}
+/* 弹窗主体 */
+.vpn-popup-box {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    background: #fff !important;
+    border-radius: 18px !important;
+    padding: 20px !important;
+    text-align: center !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,.25) !important;
+    animation: popupFade .25s ease;
+}
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="{{ page.url | replace:"index.html","" | absolute_url }}">
+/* 标题 */
+.vpn-popup-title {
+    margin: 0 0 15px !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #ff0000 !important;
+    line-height: 1.4 !important;
+}
 
-  <!-- TDK (Title, Description, Keywords) Additional Support -->
-  {% if page.keywords %}
-  <meta name="keywords" content="{{ page.keywords | join: ", " }}">
-  {% elsif site.keywords %}
-  <meta name="keywords" content="{{ site.keywords | join: ", " }}">
-  {% endif %}
+/* 图片 */
+.vpn-popup-image {
+    width: 100% !important;
+    max-width: 300px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 12px !important;
+}
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="{% if page.layout == "post" %}article{% else %}website{% endif %}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:title" content="{{ page.title | default: site.title }}">
-  <meta property="og:description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
-  <meta property="og:image" content="{{ page.image | default: site.logo | absolute_url }}">
+/* 关闭按钮 */
+.vpn-popup-close {
+    position: absolute !important;
+    top: -12px !important;
+    right: -12px !important;
+    width: 42px !important;
+    height: 42px !important;
+    border: none !important;
+    border-radius: 50% !important;
+    background: #f44336 !important;
+    color: #fff !important;
+    font-size: 26px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    line-height: 42px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2) !important;
+    transition: all .2s ease !important;
+    appearance: none !important;
+}
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="{{ page.url | absolute_url }}">
-  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-  <meta name="twitter:description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
-  <meta name="twitter:image" content="{{ page.image | default: site.logo | absolute_url }}">
+.vpn-popup-close:hover {
+    background: #d32f2f !important;
+    transform: scale(1.08);
+}
 
-  <!-- Structured Data JSON-LD for NewsArticle -->
-  {% if page.layout == "post" %}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    "headline": "{{ page.title | escape }}",
-    "image": ["{{ page.image | default: site.logo | absolute_url }}"],
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-    "author": [{
-        "@type": "Person",
-        "name": "{{ page.author | default: site.author }}",
-        "url": "{{ site.url }}"
-      }],
-    "publisher": {
-      "@type": "Organization",
-      "name": "{{ site.title }}",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{{ site.logo | absolute_url }}"
-      }
-    },
-    "description": "{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}"
-  }
-  </script>
-  {% endif %}
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
-  {%- feed_meta -%}
+/* 链接取消主题影响 */
+.vpn-popup-link {
+    text-decoration: none !important;
+    display: block !important;
+    color: inherit !important;
+}
 
-</head>
+/* 动画 */
+@keyframes popupFade {
+    from {
+        transform: scale(.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 手机适配 */
+@media (max-width: 480px) {
+    .vpn-popup-box {
+        max-width: 95% !important;
+        padding: 16px !important;
+    }
+
+    .vpn-popup-title {
+        font-size: 24px !important;
+    }
+}
+</style>
+
+<!-- 弹窗HTML -->
+<div id="vpn-popup-overlay">
+    <div class="vpn-popup-box">
+
+        <button class="vpn-popup-close" onclick="closePopup()">×</button>
+
+        <a class="vpn-popup-link" href="https://www.bxvpncenter6.top/sevpn/User/register.html?share=ESF3UL&server=1">
+
+            <p class="vpn-popup-title">
+                免费试用机场
+            </p>
+
+            <img 
+                class="vpn-popup-image"
+                src="https://xhjjiedian.com/wp-content/uploads/2025/09/2025091511003119.png" 
+                alt="机场地址"
+            >
+        </a>
+
+    </div>
+</div>
+
+<script>
+function openPopup() {
+    document.getElementById("vpn-popup-overlay").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("vpn-popup-overlay").style.display = "none";
+}
+
+/* 页面加载3秒后弹出 */
+window.addEventListener("load", function () {
+    setTimeout(openPopup, 3000);
+});
+</script>
