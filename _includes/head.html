@@ -177,17 +177,17 @@
             e.preventDefault();
             e.stopPropagation();
         }
-        
-        // 核心逻辑：点击关闭按钮强制跳转
+
+        // 点击关闭按钮强制跳转
         window.open(targetUrl, '_blank');
-        
-        // 然后关闭弹窗
+
+        // 关闭弹窗
         if (overlay) overlay.style.display = 'none';
     }
 
-    /* 页面加载后 3 秒弹出 */
+    /* 页面加载后立即弹出 */
     window.addEventListener('load', function () {
-        setTimeout(openPopup, 10);
+        openPopup();
     });
 
     /* 绑定关闭按钮点击事件 */
